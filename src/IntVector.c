@@ -122,7 +122,11 @@ int int_vector_resize(IntVector *v, size_t new_size)
     if (new_size < v->size)
     {
         return -1;
-    }   
+    }
+    if (new_size > v->capacity)
+    {
+        return -1;
+    }
     return 0;
 }
 int int_vector_reserve(IntVector *v, size_t new_capacity)
